@@ -46,9 +46,16 @@ function intToRoman(num: number): string {
     const output: string = ""
     for (let i = 0; i < input.length; i++) {
         switch (input[i]){
-            case 1:
+            case "1":
                 break;
-            case 5
+            case "5":
+                break;
+            case "10":
+                break;
+            case "50":
+                break;
+            case "100":
+                break;
         }
     }
 
