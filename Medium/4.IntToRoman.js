@@ -43,16 +43,26 @@ Output: "MCMXCIV"
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
  */
 function intToRoman(num) {
-    const input = num.toLocaleString(); //convert input to sting
-    const output = "";
-    for (let i = 0; i < input.length; i++) {
-        switch (input[i]) {
-            case 1:
-                break;
-            case 5:
-        }
+    let output = "";
+    const ones = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
+    const tens = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"];
+    const hrns = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"];
+    const ths = ["", "M", "MM", "MMM"];
+    switch (num.toString().length) {
+        case 1:
+            output = `${ones[num % 10]}`;
+            break;
+        case 2:
+            output = `${tens[Math.floor((num % 100) / 10)]}${ones[num % 10]}`;
+            break;
+        case 3:
+            output = `${hrns[Math.floor((num % 1000) / 100)]}${tens[Math.floor((num % 100) / 10)]}${ones[num % 10]}`;
+            break;
+        case 4:
+            output = `${ths[Math.floor((num % 10000) / 1000)]}${hrns[Math.floor((num % 1000) / 100)]}${tens[Math.floor((num % 100) / 10)]}${ones[num % 10]}`;
+            break;
     }
     return output;
 }
 ;
-console.log(intToRoman(45));
+console.log(intToRoman(1994));
