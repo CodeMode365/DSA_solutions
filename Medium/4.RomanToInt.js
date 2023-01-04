@@ -43,9 +43,14 @@ Output: "MCMXCIV"
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
  */
 function intToRoman(num) {
-    const input = num.toLocaleString();
+    const input = num.toLocaleString(); //convert input to sting
     const output = "";
     for (let i = 0; i < input.length; i++) {
+        switch (input[i]) {
+            case 1:
+                break;
+            case 5:
+        }
     }
     return output;
 }
