@@ -71,4 +71,3 @@ function myAtoi(s) {
 }
 ;
 // console.log(myAtoi("ram is -14 years old"))
-console.log(atob("123 xyz"));
