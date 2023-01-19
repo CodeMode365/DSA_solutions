@@ -42,41 +42,23 @@ function isValid(s: string): boolean {
                 currentParenth = ""
             }
             if (s[counter] == "}") {
-                console.log("closing 1")
                 if (previousParenth[previousParenth.length - 1] == "{") previousParenth.pop()
-                else {
-                   
-                    console.log('false 1')
-                    return false
-                };
+                else return false
             }
             else if (s[counter] == "]") {
-                console.log("closing 2")
                 if (previousParenth[previousParenth.length - 1] == "[") previousParenth.pop()
-                else {
-                    console.log('false 2')
-                    return false
-                };
+                else return false
             }
             else if (s[counter] == ")") {
-                console.log("closing 3")
                 if (previousParenth[previousParenth.length - 1] == "(") previousParenth.pop()
-                else {
-                    console.log('false 3')
-                    return false
-                };
+                else return false
             }
         }
-        console.log(previousParenth)
-        console.log(currentParenth)
         counter += 1
     }
-    if (previousParenth.toString() === [].toString()) {
-        // console.log(previousParenth)
-        // console.log(currentParenth)
-        console.log(`Test good`)
+    if (previousParenth.toString() === [].toString() && currentParenth == "") {
         return true
     }
     return false
 };
-console.log(isValid("(resr{rers[sreas]}rer)"))
+console.log(isValid("[]"))
