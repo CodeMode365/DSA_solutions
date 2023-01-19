@@ -29,20 +29,14 @@ function addBinary(a, b) {
     /**Adding extra 0's to front if one of the number's length is less */
     for (let count = 1; count <= extra; count++) {
         if (m.length > n.length) {
-            for (let W = 0; W < extra; W++) {
-                n.unshift("0");
-            }
+            n.unshift("0");
         }
         else if (n.length > m.length) {
-            for (let w = 0; w < extra; w++) {
-                m.unshift("0");
-            }
+            m.unshift("0");
         }
         if (extra == 0)
             break;
     }
-    // console.log(m.join(""))
-    // console.log(n.join(""))
     for (let count = m.length - 1; count >= 0; count--) {
         const additionValue = Number(m[count]) + Number(n[count]) + carry; // add two numbers with carry
         switch (additionValue) {
