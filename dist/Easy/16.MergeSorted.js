@@ -45,9 +45,6 @@ nums2.length == n
  */
 function merge(nums1, m, nums2, n) {
     while (n--) {
-        console.log(n);
-        console.log(m);
-        console.log(nums1[m + n]);
         nums1[m + n] = nums2.pop();
     }
     ;
@@ -55,6 +52,3 @@ function merge(nums1, m, nums2, n) {
 }
 ;
 merge([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3);
-const x = [1, 2, 3];
-x[5] = (34);
-console.log(x);
