@@ -7,8 +7,12 @@
 // ];
 const numbers = [21, 22, 32, 41, 52, 65, 76, 85, 89, 92, 99];
 function bindarySearch(arr, start = 0, end = arr.length, target) {
-    const midIndex = Math.floor((start + end) / 2);
     console.log(start, end);
+    if (start > end) {
+        // Target not found
+        return -1;
+    }
+    const midIndex = Math.floor((start + end) / 2);
     if (arr[midIndex] === target) {
         return midIndex;
     }
@@ -19,5 +23,5 @@ function bindarySearch(arr, start = 0, end = arr.length, target) {
         return bindarySearch(arr, start, midIndex - 1, target);
     }
 }
-const output = bindarySearch(numbers, 0, numbers.length - 1, 21);
+const output = bindarySearch(numbers, 0, numbers.length - 1, 12);
 console.log(output);

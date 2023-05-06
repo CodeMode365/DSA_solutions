@@ -13,9 +13,15 @@ function bindarySearch(
   start: number = 0,
   end: number = arr.length,
   target: number
-): number {
-  const midIndex: number = Math.floor((start + end) / 2);
+): number | undefined {
   console.log(start, end);
+
+  if (start > end) {
+    // Target not found
+    return -1;
+  }
+
+  const midIndex: number = Math.floor((start + end) / 2);
   if (arr[midIndex] === target) {
     return midIndex;
   } else if (arr[midIndex] < target) {
@@ -25,5 +31,5 @@ function bindarySearch(
   }
 }
 
-const output = bindarySearch(numbers, 0, numbers.length - 1, 21);
+const output = bindarySearch(numbers, 0, numbers.length - 1, 12);
 console.log(output);
