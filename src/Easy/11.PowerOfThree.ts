@@ -26,7 +26,7 @@ Explanation: There is no x where 3x = (-1).
 function isPowerOfThree(n: number): boolean {
     for (let i = 0; i < n; i++) {
         if (3 ** i <= n) {
-            if (3 ** i == n) return true◘
+            if (3 ** i == n) return true
         }
         else if (3 ** i > n) break
     }
