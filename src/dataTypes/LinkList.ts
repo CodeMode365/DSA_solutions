@@ -92,12 +92,12 @@ namespace MyLinkList {
 }
 
 const newList = new MyLinkList.LinkedList<number>();
-newList.append(23)
-newList.append(24)
-newList.append(25)
-newList.append(26)
-newList.print()
-newList.insertAt(34,2)
-newList.print()
-newList.remove(25)
-newList.print()
+newList.append(23);
+newList.append(24);
+newList.append(25);
+newList.append(26);
+newList.print();
+newList.insertAt(34, 2);
+newList.print();
+newList.remove(25);
+newList.print();
