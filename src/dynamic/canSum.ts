@@ -8,22 +8,56 @@
   You may use an element of the array as many times as needed.
 
   You may assume that all input numbers are non-negative.
- */
+
+Time complexity: O(m^n) ==> (m = target & n = array)
+Space complexity:
+  */
 
 function canSum(targetSum: number, numbers: Array<number>): boolean {
-  numbers.map((ele) => {
-    if (ele <= targetSum) {
-      if (targetSum - ele == 0) {
-        console.warn("!!!!!!!Trueeeee")
-        return true;
-      }
-      let newTarget = targetSum - ele;
-      console.log("ELement:" + ele);
-      console.log("Target" + newTarget);
-      return canSum(newTarget, numbers);
+  if (targetSum == 0) return true;
+  if (targetSum < 0) return false;
+
+  for (let num of numbers) {
+    const remainder = targetSum - num;
+    if (canSum(remainder, numbers) === true) {
+      return true;
     }
-  });
+  }
+
   return false;
 }
 
-console.log(canSum(7, [2, 3]));
+
+/*
+Complexity of memoized code
+
+Time: O(m*n)
+Space: O(m)
+
+*/
+
+interface iMemoStore {
+  [key: number]: boolean;
+}
+
+function memoCanSum(
+  targetSum: number,
+  numbers: Array<number>,
+  memo: iMemoStore = {}
+): boolean {
+  if (targetSum in memo) return memo[targetSum];
+  if (targetSum == 0) return true;
+  if (targetSum < 0) return false;
+
+  for (let num of numbers) {
+    const remainder = targetSum - num;
+    if (memoCanSum(remainder, numbers, memo) == true) {
+      memo[targetSum] = true;
+      return memo[targetSum];
+    }
+  }
+  memo[targetSum] = false;
+  return false;
+}
+
+console.log(memoCanSum(230, [3, 3, 3]));

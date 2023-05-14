@@ -9,20 +9,38 @@
   You may use an element of the array as many times as needed.
 
   You may assume that all input numbers are non-negative.
- */
+
+Time complexity: O(m^n) ==> (m = target & n = array)
+Space complexity:
+  */
 function canSum(targetSum, numbers) {
-    numbers.map((ele) => {
-        if (ele <= targetSum) {
-            if (targetSum - ele == 0) {
-                console.warn("!!!!!!!Trueeeee");
-                return true;
-            }
-            let newTarget = targetSum - ele;
-            console.log("ELement:" + ele);
-            console.log("Target" + newTarget);
-            return canSum(newTarget, numbers);
+    if (targetSum == 0)
+        return true;
+    if (targetSum < 0)
+        return false;
+    for (let num of numbers) {
+        const remainder = targetSum - num;
+        if (canSum(remainder, numbers) === true) {
+            return true;
         }
-    });
+    }
     return false;
 }
-console.log(canSum(7, [2, 3]));
+function memoCanSum(targetSum, numbers, memo = {}) {
+    if (targetSum in memo)
+        return memo[targetSum];
+    if (targetSum == 0)
+        return true;
+    if (targetSum < 0)
+        return false;
+    for (let num of numbers) {
+        const remainder = targetSum - num;
+        if (memoCanSum(remainder, numbers, memo) == true) {
+            memo[targetSum] = true;
+            return memo[targetSum];
+        }
+    }
+    memo[targetSum] = false;
+    return false;
+}
+console.log(memoCanSum(230, [3, 3, 3]));
