@@ -11,4 +11,11 @@
  *  --> Add a base case to return a memo values
  *  --> Store a return values into the memo
  *
- */ 
+ *
+ *
+ *
+ *  ========Three major Problems in Dynamic Programming=======
+ *     Ex. canSum ==> Decision Problem
+ *     Ex. howSum ==> Combination Problem
+ *     Ex. bestSum ==> Optimization Problem
+ */
