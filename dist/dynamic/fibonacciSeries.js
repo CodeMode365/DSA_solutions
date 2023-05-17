@@ -37,4 +37,20 @@ function memoFib(nth, memo = {}) {
     memo[nth] = memoFib(nth - 1, memo) + memoFib(nth - 2, memo);
     return memo[nth];
 }
-console.log(memoFib(8000));
+// console.log(memoFib(700));
+//Tabulartion (Iterative Method)
+/**
+ * Complexity
+ * Time: O(m)
+ * Space:  O(m)
+ */
+function tabFib(nth) {
+    const table = Array(nth + 1).fill(0);
+    table[1] = 1;
+    for (let i = 0; i <= nth; i++) {
+        table[i + 1] += table[i];
+        table[i + 2] += table[i];
+    }
+    return table[nth];
+}
+console.log(tabFib(500));
