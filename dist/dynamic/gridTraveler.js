@@ -31,3 +31,21 @@ function memoGridTraveler(row, col, memo = {}) {
     return memo[key];
 }
 console.log(memoGridTraveler(18, 18));
+/**
+ *            ============== Tabulation ==============
+ *
+ *  Compleity
+ * Time: O(mn)
+ * Space: O(mn)
+ */
+function tabGridTraveler(row, col) {
+    if (row == 0 || col == 0)
+        return 0;
+    let initial = {
+        x: 1,
+        y: 1,
+    };
+    let ways = 0;
+    while (initial.x !== row && initial.y !== col) {
+    }
+}
