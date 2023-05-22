@@ -39,13 +39,20 @@ console.log(memoGridTraveler(18, 18));
  * Space: O(mn)
  */
 function tabGridTraveler(row, col) {
-    if (row == 0 || col == 0)
-        return 0;
-    let initial = {
-        x: 1,
-        y: 1,
-    };
-    let ways = 0;
-    while (initial.x !== row && initial.y !== col) {
+    const table = Array(row + 1)
+        .fill(null)
+        .map(() => Array(col + 1).fill(0));
+    table[1][1] = 1;
+    for (let i = 0; i <= row; i++) {
+        for (let j = 0; j <= col; j++) {
+            const current = table[i][j];
+            // console.log(table[i + 1][j]);
+            if (i + 1 <= row)
+                table[i + 1][j] += current;
+            if (j + 1 <= col)
+                table[i][j + 1] += current;
+        }
     }
+    return table[row][col];
 }
+console.log(tabGridTraveler(2, 3));
