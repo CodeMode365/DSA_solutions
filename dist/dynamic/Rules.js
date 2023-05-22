@@ -18,4 +18,20 @@
  *     Ex. canSum ==> Decision Problem
  *     Ex. howSum ==> Combination Problem
  *     Ex. bestSum ==> Optimization Problem
+ *
+ *
+ *
+ *  ==============> Tabulation Recipe <==============
+ * --> visualize the problem as table
+ * --> size the table based on the inputs
+ * --> initialize the table with default values
+ * --> iterate through the table
+ * --> fill further positions based on the current position
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
