@@ -27,7 +27,6 @@ function canSum(targetSum: number, numbers: Array<number>): boolean {
   return false;
 }
 
-
 /*
 Complexity of memoized code
 
@@ -61,3 +60,25 @@ function memoCanSum(
 }
 
 console.log(memoCanSum(230, [3, 3, 3]));
+
+/*
+Tabulation Method Complexity
+
+Time: mn
+spac: m
+*/
+function tabCanSum(target: number, values: Array<number>): boolean {
+  const table = Array(target + 1).fill(false);
+  table[0] = true;
+
+  for (let i = 0; i <= target; i++) {
+    if (table[i] === true) {
+      for (let element of values) {
+          table[i + element] = true;
+      }
+    }
+  }
+  return table[target];
+}
+
+console.log(tabCanSum(7, [5, 4, 3]));
