@@ -74,7 +74,7 @@ function tabCanSum(target: number, values: Array<number>): boolean {
   for (let i = 0; i <= target; i++) {
     if (table[i] === true) {
       for (let element of values) {
-          table[i + element] = true;
+        table[i + element] = true;
       }
     }
   }

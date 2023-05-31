@@ -47,3 +47,24 @@ function memoHowSum(targetSum, numbers, store = {}) {
     return null;
 }
 console.log(memoHowSum(97, [2, 6]));
+/** Tabulation Method
+ *
+ * Complexity
+ * Time: m*n*m
+ * Space: m*m
+ */
+function tabHowSum(target, nums) {
+    const table = Array(target + 1).fill(null);
+    table[0] = [];
+    for (let i = 0; i <= target; i++) {
+        for (let item of nums) {
+            if (table[i] !== null) {
+                if (i + item < table.length) {
+                    table[i + item] = table[i].concat(item);
+                }
+            }
+        }
+    }
+    return table[target];
+}
+console.log("how sum val", tabHowSum(2, [5, 4, 3]));
