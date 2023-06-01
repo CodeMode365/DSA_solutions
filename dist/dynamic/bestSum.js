@@ -48,3 +48,29 @@ function memoBestSum(targetSum, numbers, store = {}) {
     return shortest;
 }
 console.log(memoBestSum(100, [2, 5, 25, 10]));
+/**Tabulation Method
+ *
+ * m= targetSum, n= numbers.length
+ * Complexity:
+ * Time: m*n*m
+ * Space: m^2
+ */
+const tabBestSum = (target, nums) => {
+    var _a, _b;
+    const table = Array(target + 1).fill(null);
+    table[0] = [];
+    for (let i = 0; i <= target; i++) {
+        if (table[i] != null) {
+            for (let item of nums) {
+                if (table[i + item] < target) {
+                    if (table[i + item] == null ||
+                        ((_a = table[i + item]) === null || _a === void 0 ? void 0 : _a.length) < ((_b = table[i]) === null || _b === void 0 ? void 0 : _b.length)) {
+                        table[i + item] = [...table[i], item];
+                    }
+                }
+            }
+        }
+    }
+    return table[target];
+};
+console.log(tabBestSum(7, [2, 3, 5]));

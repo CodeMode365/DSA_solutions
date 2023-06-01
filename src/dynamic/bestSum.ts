@@ -47,15 +47,14 @@ space: O(m^2)
 
 */
 
-
-interface iStore {
+interface iMem {
   [key: number]: Array<number> | null;
 }
 
 function memoBestSum(
   targetSum: number,
   numbers: Array<number>,
-  store: iStore = {}
+  store: iMem = {}
 ): Array<number> | null {
   if (targetSum in store) return store[targetSum];
   if (targetSum < 0) return null;
@@ -80,4 +79,38 @@ function memoBestSum(
   return shortest;
 }
 
-console.log(memoBestSum(100, [2,5,25,10]));
+console.log(memoBestSum(100, [2, 5, 25, 10]));
+
+/**Tabulation Method
+ *
+ * m= targetSum, n= numbers.length
+ * Complexity:
+ * Time: m*n*m
+ * Space: m^2
+ */
+
+const tabBestSum = (
+  target: number,
+  nums: Array<number>
+): null | Array<number> => {
+  const table: (null | Array<number>)[] = Array(target + 1).fill(null);
+  table[0] = [];
+
+  for (let i = 0; i <= target; i++) {
+    if (table[i] != null) {
+      for (let item of nums) {
+        if (table[i + item] < target) {
+          if (
+            table[i + item] == null ||
+            table[i + item]?.length < table[i]?.length
+          ) {
+            table[i + item] = [...table[i], item];
+          }
+        }
+      }
+    }
+  }
+  return table[target];
+};
+
+console.log(tabBestSum(7, [2, 3, 5]));
