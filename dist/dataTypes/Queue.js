@@ -33,6 +33,18 @@ class Queue {
         this.updateHeadTail();
         return this.tail;
     }
+    isEmpty() {
+        if (this.items.length == 0)
+            return true;
+        else
+            return false;
+    }
+    isFUll() {
+        if (this.items.length >= this.maxLength)
+            return true;
+        else
+            return false;
+    }
 }
 const q1 = new Queue(5);
 q1.Enqueue(5);

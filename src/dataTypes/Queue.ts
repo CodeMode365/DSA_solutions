@@ -30,13 +30,23 @@ class Queue<T> {
     return this.items;
   }
 
-  public GetHead() { 
-    this.updateHeadTail()
+  public GetHead() {
+    this.updateHeadTail();
     return this.head;
   }
   public GetTail() {
-    this.updateHeadTail()
+    this.updateHeadTail();
     return this.tail;
+  }
+
+  public isEmpty(): boolean {
+    if (this.items.length == 0) return true;
+    else return false;
+  }
+
+  public isFUll(): boolean {
+    if (this.items.length >= this.maxLength) return true;
+    else return false;
   }
 }
 
@@ -50,6 +60,6 @@ q1.Enqueue(43);
 console.log(q1.ShowQueue());
 console.log("HEad:" + q1.GetHead());
 console.log("Tail:" + q1.GetTail());
-q1.Dequeue()
-q1.Enqueue("Random Text")
-console.log(q1.ShowQueue())
+q1.Dequeue();
+q1.Enqueue("Random Text");
+console.log(q1.ShowQueue());
