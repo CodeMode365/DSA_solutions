@@ -30,6 +30,12 @@
  *
  *
  *
+ *          ================> Tips <==============
+ *  --> notice any overlapping subproblems
+ *  --> decide what is the trivally smalles input
+ *  --> think recursively to use Memoization
+ *  --> think iteratively to use tabulation
+ *  --> draw a strategy first!!!
  *
  *
  *
