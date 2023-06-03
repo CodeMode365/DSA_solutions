@@ -80,3 +80,39 @@ console.log(
     "aaaaaaaaaaa",
   ])
 );
+
+/** Tabulation
+ *
+ *  n= target.length
+ *  m= wordBank.length
+ * Complxity
+ * Time:n^m
+ * Space:n^m
+ */
+
+function tabAllConstruct(
+  target: string,
+  worBank: string[]
+): Array<string> | null {
+  const table = Array(target.length + 1).fill([]);
+  table[0] = [[]];
+
+  for (let x = 0; x <= target.length; x++) {
+    for (let item of table[x]) {
+      for (let word of worBank) {
+        if (target.slice(x, x + word.length) == word) {
+          table[x + word.length] = [...table[x + word.length], [...item,word]];
+        }
+      }
+    }
+  }
+
+  console.log(table);
+  return table[target.length];
+}
+
+console.log("================");
+console.log(tabAllConstruct("purple", ["purp", "p", "ur", "le", "purpl"]));
+console.log(
+  tabAllConstruct("abcdef", ["ab", "abc", "cd", "def", "abcd", "ef", "c"])
+);
