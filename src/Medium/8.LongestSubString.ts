@@ -45,7 +45,9 @@ function lengthOfLongestSubstring(s: string, memo = { longest: 0 }): number {
     }
     if (longestStr.length > memo['longest'])
         memo['longest'] = longestStr.length
-    return lengthOfLongestSubstring(s.slice(1, s.length), memo)
+    if (longestStr.length < (s.slice(1, s.length)).length)
+        return lengthOfLongestSubstring(s.slice(1, s.length), memo)
+    return memo['longest']
 };
 
 console.log(lengthOfLongestSubstring('eleven')) // 3
