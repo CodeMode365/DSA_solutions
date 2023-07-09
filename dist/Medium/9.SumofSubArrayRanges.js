@@ -71,3 +71,5 @@ function subArrayRanges(nums) {
 console.log(subArrayRanges([1, 3, 3])); //4
 console.log(subArrayRanges([1, 2, 3])); //4
 console.log(subArrayRanges([4, -2, -3, 4, 1])); //59
+//NOt solved due to large Space Complexity in nums
+//Time Limit Exceeded
