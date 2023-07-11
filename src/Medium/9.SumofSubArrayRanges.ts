@@ -82,3 +82,5 @@ console.log(subArrayRanges([-1757,77433,-13341,-8692,52484,-38174,-75312,73568,9
 
 //NOt solved due to large Space Complexity in nums
 //Time Limit Exceeded
+
+//Just testing the speed
