@@ -33,6 +33,8 @@ function isMatch(s, p) {
         console.log("c-1");
         return true;
     }
+    if (s == "" && p == "")
+        return true;
     if (p1.length == 0 || s1.length == 0) {
         console.log("c0");
         return false;
@@ -40,14 +42,19 @@ function isMatch(s, p) {
     if (s1[0] == p1[0]) {
         console.log("c1");
         if (p1[1] == "*") {
-            const newTest = [];
+            console.log("okkk");
             for (let x of s1.slice(0)) {
-                if (s1[0] == x)
-                    continue;
-                newTest.push(x);
+                if (p[2] == x) {
+                    console.log("running");
+                    break;
+                }
+                ;
+                if (p[0] == x) {
+                    s1.shift();
+                }
+                break;
             }
-            console.log(newTest);
-            return (isMatch(newTest.join(""), p1.slice(1).join("")));
+            return (isMatch(s1.join(''), p1.slice(2).join("")));
         }
         return isMatch(s1.slice(1).join(""), p1.slice(1).join(""));
     }
@@ -85,3 +92,4 @@ console.log(isMatch("abcda", "*a")); //true
 console.log(isMatch("aab", "c*a*b")); //true
 console.log(isMatch("mississippi", "mis*is*ip*.")); //true
 console.log(isMatch("mississippi", "mis*is*p*.")); //false
+console.log(isMatch("aaa", "a*a")); //true
