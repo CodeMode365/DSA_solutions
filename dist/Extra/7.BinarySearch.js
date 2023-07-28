@@ -5,21 +5,6 @@
  array, return -1.
  */
 function binSearch(arr, target, start, end) {
-    // if (arr.length === 0) return -1;
-    // if (!isSorted(arr)) throw new Error('Input array must be sorted');
-    // let start = 0;
-    // let end = arr.length - 1;
-    // while (start <= end) {
-    //     const mid = Math.floor((start + end) / 2);
-    //     if (arr[mid] === target) return mid;
-    //     if (target > arr[mid]) {
-    //         start = mid + 1;
-    //     }
-    //     if (target < arr[mid]) {
-    //         end = mid - 1;
-    //     }
-    // }
-    // return -1;
     if (!isSorted(arr))
         throw new Error("Given array not sorted");
     if (!start)
