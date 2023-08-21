@@ -1,4 +1,31 @@
 "use strict";
+/**
+ Longest Palindromic Substring
+Medium
+Given a string s, return the longest
+palindromic
+ 
+substring
+ in s.
+
+ 
+
+Example 1:
+
+Input: s = "babad"
+Output: "bab"
+Explanation: "aba" is also a valid answer.
+Example 2:
+
+Input: s = "cbbd"
+Output: "bb"
+ 
+
+Constraints:
+
+1 <= s.length <= 1000
+s consist of only digits and English letters.
+ */
 function longestPalidrome(s) {
     let longestPal = "";
     for (let right = s.length - 1; right >= 0; right--) {
@@ -25,15 +52,6 @@ function isPalindrome(s) {
         }
     }
     return isPal;
-}
-function isPalindrome(input) {
-    // console.log("calling me", input, input.length <= 1)
-    if (input.length <= 1)
-        return true;
-    if (input[0] == input[input.length - 1]) {
-        return isPalindrome(input.slice(1, input.length - 1));
-    }
-    return false;
 }
 console.log(longestPalidrome("babad"));
 console.log(longestPalidrome(""));
