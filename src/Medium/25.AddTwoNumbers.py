@@ -53,8 +53,11 @@ class ListNode:
 
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        resulting = []
         carry = 0
+        initialCreation = True
+        finalList = None
+        curr = None
+
         while (l1 or l2 or carry):
             sum = 0
 
@@ -69,17 +72,15 @@ class Solution:
             sum += carry
             carry = math.floor(sum/10)
             sum = sum % 10
-            resulting.append(sum)
 
-        index = 0
-        finalList = ListNode(resulting[index])
-        current = finalList
-        while index < len(resulting) - 1:
-            if resulting[index + 1] >= 0:
-                current.next = ListNode(resulting[index + 1])
-                current = current.next
-            index += 1
-            
+            if (initialCreation):
+                finalList = ListNode(sum)
+                curr = finalList
+                initialCreation = False
+            else:
+                curr.next = ListNode(sum)
+                curr = curr.next
+
         return finalList
 
 
@@ -93,3 +94,4 @@ list2.next.next = ListNode(6)
 
 sol = Solution()
 sol.addTwoNumbers(list1, list2)
+print(sol)
